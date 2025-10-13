@@ -1,0 +1,15 @@
+---
+const { title, subtitle, icon } = Astro.props;
+---
+
+<div class="bg-white px-5 py-10 flex flex-col gap-5 rounded-lg shadow-lg shadow-primary/10 hover:-translate-y-1.5 cursor-pointer transition-all">
+    <div class="flex flex-col w-full items-center justify-center gap-3">
+        <svg class="w-10 h-10 fill-primary cursor-pointer group-hover:fill-white">
+            <use xlink:href=`/assets/sprite.svg#icon-${icon}`></use>
+        </svg>
+        <h3 class="text-foreground text-xl font-semibold text-center">{ title }</h3>
+    </div>
+    <div class="flex flex-col text-muted-foreground text-center">
+        <p>{ subtitle }</p>
+    </div>
+</div>

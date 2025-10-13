@@ -1,0 +1,28 @@
+---
+import AboutCard from "./AboutCard.astro";
+import { getCollection } from "astro:content";
+
+const cards = await getCollection('AboutCards');
+---
+
+<section id="about-us-section" class="w-full min-h-dvh bg-secondary bg-center bg-cover relative pt-[10vh]">
+    <div class="w-full h-full p-5 flex flex-col gap-10">
+        <div class="flex flex-col gap-10">
+            <h2 class="text-foreground text-4xl text-center font-extrabold">Sobre Mi Tech</h2>
+            <p class="text-lg text-justify text-muted-foreground">En Mi Tech somos una empresa comprometida con la conectividad y la innovación. Nos especializamos en ofrecer servicios de internet residencial a través de fibra óptica, brindando planes accesibles y de alta velocidad que se ajustan a las necesidades de nuestros clientes. Nuestro objetivo es llevar una conexión estable, rápida y segura a cada hogar, contribuyendo al desarrollo digital de nuestra comunidad.</p>
+        </div>
+    
+        <div class="flex flex-col gap-5">
+            {
+                cards.map(card => {
+                    const { data } = card;
+                    const { title, subtitle, icon } = data;
+
+                    return (
+                        <AboutCard title={title} subtitle={subtitle} icon={icon} />
+                    )
+                })
+            }
+        </div>
+    </div>
+</section>

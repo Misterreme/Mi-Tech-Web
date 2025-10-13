@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  /* 🎨 Brand colors - Professional blue for tech/trust */
+  --color-primary: #1386E6;
+  --color-primary-foreground: #FFFFFF;
+  --color-primary-hover: #1178D1;
+  
+  /* ✨ Accent - Modern cyan for connectivity */
+  --color-accent: #2DCDD8;
+  --color-accent-foreground: #FFFFFF;
+  --color-accent-hover: #1AC0CC;
+  
+  /* 🧱 Backgrounds */
+  --color-background: #FFFFFF;
+  --color-foreground: #2B3038;
+  
+  --color-secondary: #F8F9FB;
+  --color-secondary-foreground: #2B3038;
+  
+  /* 🔉 Muted colors */
+  --color-muted: #F0F2F4;
+  --color-muted-foreground: #78828C;
+  
+  /* 💳 Card styles */
+  --color-card: #FFFFFF;
+  --color-card-foreground: #2B3038;
+  
+  /* 🧩 Form elements */
+  --color-border: #D9E2EC;
+  --color-input: #D9E2EC;
+  --color-ring: #1386E6;
+  
+  /* ⚠️ Destructive */
+  --color-destructive: #F23F3F;
+  --color-destructive-foreground: #FFFFFF;
+
+  /* Text */
+  --color-muted-text: #ffffffb2;
+}
+
+:root {
+  --font-sans: 'Poppins', sans-serif;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-text {
+  background-size: 300% 300%;
+  animation: gradient 5s ease infinite;
+}
+
+.shadow-card {
+    box-shadow: 0 0 3px 5px var(--color-primary);
+}
