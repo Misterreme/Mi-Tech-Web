@@ -2,28 +2,28 @@
 import '../styles/global.css';
 ---
 <section id="hero-section" class="w-full min-h-dvh bg-[url('../../public/assets/hero-bg.webp')] bg-center bg-cover relative pt-[10dvh]">
-    <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-primary/90 to-accent/80 pt-[15dvh]">
+    <div class="absolute inset-0 w-full h-full pt-[15dvh] lg:pt-[25dvh] bg-gradient-to-r from-primary/50 to-accent/70">
         <div class="w-full flex flex-col justify-center p-10 gap-5">
-            <h1 class="font-extrabold text-5xl text-center text-white mb-5">Conéctate al futuro con <span id="page-name" class="font-bold bg-gradient-to-r from-primary via-white to-accent bg-clip-text text-transparent animate-text">Mi Tech</span></h1>
-            <p class="font-light text-white text-xl text-center">Internet rápido, estable y accesible para tu hogar o negocio</p>
+            <h1 class="font-extrabold text-5xl text-center text-white mb-5 lg:text-8xl">Conéctate al futuro <span id="page-name" class="font-bold bg-gradient-to-r from-primary via-white to-accent bg-clip-text text-transparent animate-text block"><span class="text-white">con </span>Mi Tech</span></h1>
+            <p class="font-light text-white text-xl text-center lg:text-3xl">Internet rápido, estable y accesible <span class="lg:block">para tu hogar o negocio</span></p>
 
-            <div class="w-full flex flex-col p-10 items-center justify-center gap-5">
-                <button class="flex items-center justify-center gap-3 bg-white w-[200px] py-3 rounded-lg hover:scale-105 active:scale-105 transition-all ">
-                    <a href="#plans-section" class="text-primary font-bold text-lg">Ver planes</a>
-                    <svg class="w-4 h-4 fill-primary cursor-pointer group-hover:fill-white">
-                        <use xlink:href="/assets/sprite.svg#icon-arrow-right" id="menu-icon"></use>
+            <div class="w-full flex flex-col lg:flex-row p-10 items-center justify-center gap-5">
+                <button class="flex items-center justify-center gap-3 bg-white w-[200px] lg:w-[250px] py-3 rounded-lg hover:scale-105 active:scale-105 transition-all ">
+                    <a href="#plans-section" class="text-primary font-bold text-lg lg:text-xl">Ver planes</a>
+                    <svg class="w-4 h-4 lg:w-8 lg:h-8 fill-primary cursor-pointer group-hover:fill-white">
+                        <use xlink:href="/assets/sprite.svg#icon-arrow-right"></use>
                     </svg>
                 </button>
-                <button class="flex items-center justify-center gap-3 border border-white w-[200px] py-3 rounded-lg hover:scale-105 active:scale-105 transition-all ">
-                    <a href="#contact-section" class="text-white font-bold text-lg">Contactanos</a>
-                    <svg class="w-4 h-4 fill-white cursor-pointer group-hover:fill-white">
-                        <use xlink:href="/assets/sprite.svg#icon-arrow-right" id="menu-icon"></use>
+                <button class="flex items-center justify-center gap-3 border border-white w-[200px] lg:w-[250px] py-3 rounded-lg hover:scale-105 active:scale-105 transition-all ">
+                    <a href="#contact-section" class="text-white font-bold text-lg lg:text-xl">Contactanos</a>
+                    <svg class="w-4 h-4 lg:w-8 lg:h-8 fill-white cursor-pointer group-hover:fill-white">
+                        <use xlink:href="/assets/sprite.svg#icon-arrow-right"></use>
                     </svg>
                 </button>
             </div>
-            <div class="w-full flex items-center justify-center animate-bounce delay-0">
-                <svg class="w-10 h-10 fill-white cursor-pointer">
-                    <use xlink:href="/assets/sprite.svg#icon-router" id="menu-icon"></use>
+            <div class="w-full h-60 flex items-center justify-center animate-bounce">
+                <svg class="w-10 h-10 lg:w-20 lg:h-20 fill-white cursor-pointer">
+                    <use xlink:href="/assets/sprite.svg#icon-router"></use>
                 </svg>	
             </div>
         </div>

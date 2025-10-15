@@ -1,37 +1,41 @@
 ---
-const { title, subtitle, price, mbps } = Astro.props;
+const { subtitle, price, mbps, featured } = Astro.props;
 ---
-<div class="bg-secondary px-5 py-10 flex flex-col gap-5 rounded-lg shadow-lg shadow-primary/10 hover:-translate-y-1.5 cursor-pointer transition-all border border-gray-200">
-    <div class="flex flex-col w-full items-center justify-center gap-2">
-        <h2 class="text-2xl font-bold text-center">{ title }</h2>
-        <p class="text-light text-muted-foreground text-center">{ subtitle }</p>
-    </div>
+<div class={`w-full bg-secondary px-5 py-10 lg:py-20 flex flex-col gap-5 rounded-lg shadow-lg shadow-primary/10 hover:-translate-y-1.5 cursor-pointer transition-all relative ${featured ? "border-3 border-primary" : "border border-gray-200"}`}>
+    <div class={ `z-10 absolute translate-1/2 right-1/2 lg:-top-9.5 -top-8.5 py-2 px-6 rounded-full bg-gradient-to-r from-primary to-accent text-xs lg:text-sm text-white ${featured ? "" : "hidden" }` }>Más popular</div>
     <div class="w-full flex flex-col items-center justify-center gap-5">
-        <h2 class="text-5xl font-extrabold text-primary text-center">{ price }</h2>
-        <span class="text-muted-foreground">/mes</span>
-
-        <div class="bg-gray-200 py-3 w-full text-center rounded-full text-primary font-bold"> { mbps } Mbps</div>
+        <div class="w-full flex flex-col gap-2 items-center justify-center">
+            <!-- <div class="bg-gray-200 px-5 py-5 w-full rounded-full">
+                </div> -->
+            <h2 class="text-5xl lg:text-6xl font-extrabold text-primary text-center">{ mbps } Mbps</h2>
+            <span class="text-normal lg:text-lg font-semibold text-muted-foreground">Por tan solo</span>
+            <h3 class="text-3xl lg:text-4xl font-extrabold text-primary text-center">{ price }</h3>
+            <span class="text-muted-foreground lg:text-lg">/mes</span>
+        </div>
     </div>
-    <ul class="text-muted-foreground font-medium flex flex-col justify-center items-start mt-5 gap-3">
-        <li class="flex gap-3 text-sm">           
+    <div class="flex flex-col w-full items-center justify-center gap-2">
+        <p class="text-lg text-light text-muted-foreground lg:text-xl text-center">{ subtitle }</p>
+    </div>
+    <ul class="text-muted-foreground font-medium lg:text-xl flex flex-col justify-center items-start mt-5 gap-3">
+        <li class="flex gap-3 text-sm lg:text-lg">           
             <svg class="w-5 h-5 fill-primary cursor-pointer group-hover:fill-white">
                 <use xlink:href="/assets/sprite.svg#icon-check-circle" id="menu-icon"></use>
             </svg>
             <span>Velocidad de descarga: { mbps } Mbps</span>
         </li>
-        <li class="flex gap-3 text-sm">           
+        <li class="flex gap-3 text-sm lg:text-lg">           
             <svg class="w-5 h-5 fill-primary cursor-pointer group-hover:fill-white">
                 <use xlink:href="/assets/sprite.svg#icon-check-circle" id="menu-icon"></use>
             </svg>
             <span>Velocidad de carga: { mbps } Mbps</span>
         </li>
-        <li class="flex gap-3 text-sm">           
+        <li class="flex gap-3 text-sm lg:text-lg">           
             <svg class="w-5 h-5 fill-primary cursor-pointer group-hover:fill-white">
                 <use xlink:href="/assets/sprite.svg#icon-check-circle" id="menu-icon"></use>
             </svg>
             <span>Conexión estable</span>
         </li>
-        <li class="flex gap-3 text-sm">           
+        <li class="flex gap-3 text-sm lg:text-lg">           
             <svg class="w-5 h-5 fill-primary cursor-pointer group-hover:fill-white">
                 <use xlink:href="/assets/sprite.svg#icon-check-circle" id="menu-icon"></use>
             </svg>

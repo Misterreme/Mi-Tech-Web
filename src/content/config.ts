@@ -13,8 +13,19 @@ const planCards = defineCollection({
         title: z.string(),
         subtitle: z.string(), 
         price: z.string(),
-        mbps: z.number()
+        mbps: z.number(),
+        featured: z.boolean()
     })
 });
 
-export const collections = { cards, planCards }
+const contactCards = defineCollection({
+    schema: z.object({
+        title: z.string(),
+        subtitle: z.string(), 
+        icon: z.string(),
+        iconFill: z.string(),
+        link: z.string(),
+    })
+});
+
+export const collections = { cards, planCards, contactCards }

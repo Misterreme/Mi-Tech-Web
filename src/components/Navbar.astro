@@ -3,34 +3,42 @@ import '../styles/global.css';
 ---
 
 <nav id="navbar" class="w-full h-[10dvh] fixed z-10 transition-all">
-    <div class="w-full h-full bg-inherit flex items-center justify-between px-5 relative">
-        <div class="flex gap-5">
-            <svg class="w-6 h-6 fill-white" id="title-icon">
+    <div class="w-full h-full bg-inherit flex items-center justify-between px-5 lg:px-15 relative">
+        <div class="flex gap-5 p-5">
+            <!-- <svg class="w-6 h-6 lg:w-10 lg:h-10 fill-white" id="title-icon">
                 <use xlink:href="/assets/sprite.svg#icon-wifi"></use>
-            </svg>
-            <h2 id="nav-title" class="font-bold text-lg text-white">Mi Tech</h2>
+            </svg> -->
+            <!-- <h2 id="nav-title" class="font-bold text-lg text-white lg:text-4xl">Mi Tech</h2> -->
+             <img src="/assets/logo.png" alt="Page Logo" class="w-18 h-13 lg:w-25 lg:h-20">
         </div>
-        <div id="open-menu" class="p-2 hover:scale-105 hover:bg-primary rounded-lg transition-all group">
-            <svg class="w-5 h-5 fill-foreground cursor-pointer group-hover:fill-white">
-                <use xlink:href="/assets/sprite.svg#icon-list" id="menu-icon"></use>
+        <div id="nav-links" class="hidden gap-5 justify-center items-center lg:flex text-white text-xl mt-1 font-semibold">
+            <a href="#hero-section" class="hover:scale-110 transition-all hover:text-transparent hover:bg-gradient-to-r bg-clip-text from-sky-400 via-white to-sky-500">Inicio</a>
+            <a href="#about-us-section" class="hover:scale-110 transition-all hover:text-transparent hover:bg-gradient-to-r bg-clip-text from-sky-400 via-white to-sky-500">Nosotro</a>
+            <a href="#plans-section" class="hover:scale-110 transition-all hover:text-transparent hover:bg-gradient-to-r bg-clip-text from-sky-400 via-white to-sky-500">Planes</a>
+            <a href="#contact-section" class="hover:scale-110 transition-all hover:text-transparent hover:bg-gradient-to-r bg-clip-text from-sky-400 via-white to-sky-500">Contacto</a>
+        </div>
+
+        <div id="open-menu" class="lg:hidden flex flex-col items-center justify-center p-2 hover:scale-105 hover:bg-muted-foreground/30 rounded-lg transition-all group">
+            <svg class="w-7 h-7 cursor-pointer flex justify-center items-center">
+                <use xlink:href="/assets/sprite.svg#icon-three-dots" class="fill-white" id="menu-icon"></use>
             </svg>
         </div>
-        <div id="links-menu" class="backdrop-blur-lg absolute top-[100%] w-full left-[100%] transition-all">
+        <div id="links-menu" class="lg:hidden backdrop-blur-lg absolute top-[100%] w-full left-[100%] transition-all">
             <div class="p-5">
-                <ul class="flex flex-col gap-5 text-base font-sans font-medium text-foreground">
+                <div class="flex flex-col gap-5 text-base font-sans font-medium text-foreground" id="menu-links">
                     <a href="#hero-section" class="hover:text-primary-hover active:text-primary-hover transition-all hover:scale-105 active:scale-105">                        
-                        <li class="p-3 rounded-lg w-full bg-sky-500 text-white">Inicio</li>
+                        <p class="p-3 rounded-lg w-full bg-white text-foreground">Inicio</p>
                     </a>
                     <a href="#about-us-section" class="hover:text-primary-hover active:text-primary-hover transition-all hover:scale-105 active:scale-105">                        
-                        <li class="p-3 rounded-lg w-full bg-sky-500 text-white">Nosotros</li>
+                        <p class="p-3 rounded-lg w-full bg-white text-foreground">Nosotros</p>
                     </a>
                     <a href="#plans-section" class="hover:text-primary-hover active:text-primary-hover transition-all hover:scale-105 active:scale-105">                        
-                        <li class="p-3 rounded-lg w-full bg-sky-500 text-white">Planes</li>
+                        <p class="p-3 rounded-lg w-full bg-white text-foreground">Planes</p>
                     </a>
                     <a href="#contact-section" class="hover:text-primary-hover active:text-primary-hover transition-all hover:scale-105 active:scale-105">                        
-                        <li class="p-3 rounded-lg w-full bg-sky-500 text-white">Contacto</li>
+                        <p class="p-3 rounded-lg w-full bg-white text-foreground">Contacto</p>
                     </a>
-                </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -38,12 +46,16 @@ import '../styles/global.css';
 
 <script>
     const $ = (id:string) => document.getElementById(id);
+    const $$ = (selector:string) => document.querySelectorAll(selector);
     const openMenu = $('open-menu');
     const menu = $('links-menu');
     const menuIcon = $('menu-icon');
     const nav = $('navbar');
     const titleIcon = $('title-icon');
     const navTitle = $('nav-title');
+
+    const menuLinks = $$('#menu-links > a p');
+    const navbarLinks = $$('#nav-links > a');
 
     window.addEventListener('scroll', () => {
         if (window.scrollY > 10) {
@@ -56,6 +68,22 @@ import '../styles/global.css';
             navTitle?.classList.remove('text-white');
             navTitle?.classList.add('text-primary');
 
+            menuIcon?.classList.remove("fill-white");
+            menuIcon?.classList.add ("fill-sky-500");
+
+            menuLinks.forEach(links => {
+                links.classList.remove('bg-white');
+                links.classList.add('bg-sky-500');
+                links.classList.add('text-white');
+            });
+
+            navbarLinks.forEach(links => {
+                links.classList.remove('text-white');
+                links.classList.remove('via-white');
+                links.classList.add('via-sky-300');
+                links.classList.add('text-sky-700');
+            });
+
         } else {
             nav?.classList.remove('bg-white');
             nav?.classList.remove('backdrop-blur-lg');
@@ -65,21 +93,37 @@ import '../styles/global.css';
             navTitle?.classList.remove('text-black');
             menu?.classList.remove('bg-white');
             menu?.classList.add('backdrop-blur-lg');
+
+            menuIcon?.classList.remove("fill-sky-500");
+            menuIcon?.classList.add("fill-white");
+                      
+            menuLinks.forEach(links => {
+                links.classList.remove('bg-sky-500');
+                links.classList.add('bg-white');
+                links.classList.remove('text-white');
+            });
+
+            navbarLinks.forEach(links => {
+                links.classList.add('text-white');
+                links.classList.remove('text-sky-700');
+                links.classList.remove('via-sky-300');
+                links.classList.add('via-white');
+            });
         };
     });
 
     openMenu?.addEventListener('click', () => {
         menu?.classList.toggle('left-0');
         menu?.classList.toggle('left-[100%]');
-        menuIcon?.setAttribute('xlink:href', menu?.classList.contains('left-0') ? '/assets/sprite.svg#icon-close-sm' : '/assets/sprite.svg#icon-list');
+        menuIcon?.setAttribute('xlink:href', menu?.classList.contains('left-0') ? '/assets/sprite.svg#icon-close-sm' : '/assets/sprite.svg#icon-three-dots');
     });
 
     menu?.addEventListener('click', (e) => {
         const click = e.target;
-        if (click.matches('li')) {
+        if (click.matches('p')) {
             menu?.classList.toggle('left-0');
             menu?.classList.toggle('left-[100%]');
-            menuIcon?.setAttribute('xlink:href', menu?.classList.contains('left-0') ? '/assets/sprite.svg#icon-close-sm' : '/assets/sprite.svg#icon-list');
+            menuIcon?.setAttribute('xlink:href', menu?.classList.contains('left-0') ? '/assets/sprite.svg#icon-close-sm' : '/assets/sprite.svg#icon-three-dots');
         }
     });
 </script>

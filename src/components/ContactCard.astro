@@ -1,13 +1,15 @@
 ---
-const { title, subtitle, icon, iconFill } = Astro.props;
+const { title, subtitle, icon, iconFill, link } = Astro.props;
 ---
 
-<div class="w-full flex flex-col px-10 py-5 rounded-xl bg-white shadow-lg shadow-primary/10 items-center justify-center">
-    <div class="flex flex-col justify-center items-center gap-3">
-        <svg class=`w-6 h-6 ${iconFill}`>
-            <use xlink:href=`/assets/sprite.svg#icon-${ icon }`></use>
-        </svg>
-        <h3 class="text-black font-semibold text-lg">{ title }</h3>
-    </div>
-    <p class="text-muted-foreground text-center">{ subtitle }</p>
+<div class="w-full rounded-xl bg-white shadow-lg hover:scale-105 active:scale-105 transition-all cursor-pointer shadow-primary/10 items-center justify-center relative">
+    <a href=`${ link }` class="w-full h-full flex flex-col px-10 py-5">
+        <div class="flex flex-col justify-center items-center gap-3">
+            <svg class=`w-6 h-6 ${iconFill}`>
+                <use xlink:href=`/assets/sprite.svg#icon-${ icon }`></use>
+            </svg>
+            <h3 class="text-black font-semibold text-lg">{ title }</h3>
+        </div>
+        <p class="text-muted-foreground text-center">{ subtitle }</p>
+    </a>
 </div>
