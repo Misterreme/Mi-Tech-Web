@@ -8,11 +8,11 @@ const cards = await getCollection('AboutCards');
 <section id="about-us-section" class="w-full min-h-dvh bg-secondary bg-center bg-cover relative pt-[10vh]">
     <div class="w-full h-full p-5 flex flex-col gap-15">
         <div class="flex flex-col gap-10 lg:px-90">
-            <h2 class="text-foreground text-4xl text-center font-extrabold lg:text-6xl">Sobre Mi Tech</h2>
-            <p class="text-lg text-justify text-muted-foreground lg:text-2xl">En Mi Tech somos una empresa comprometida con la conectividad y la innovación. Nos especializamos en ofrecer servicios de internet residencial a través de fibra óptica, brindando planes accesibles y de alta velocidad que se ajustan a las necesidades de nuestros clientes. Nuestro objetivo es llevar una conexión estable, rápida y segura a cada hogar, contribuyendo al desarrollo digital de nuestra comunidad.</p>
+            <h2 class="text-foreground text-4xl text-center font-extrabold lg:text-5xl">Sobre Mi Tech</h2>
+            <p class="text-lg text-justify text-muted-foreground lg:text-xl">En Mi Tech somos una empresa comprometida con la conectividad y la innovación. Nos especializamos en ofrecer servicios de internet residencial a través de fibra óptica, brindando planes accesibles y de alta velocidad que se ajustan a las necesidades de nuestros clientes. Nuestro objetivo es llevar una conexión estable, rápida y segura a cada hogar, contribuyendo al desarrollo digital de nuestra comunidad.</p>
         </div>
     
-        <div class="flex flex-col gap-10 lg:grid grid-cols-2 place-content-center lg:px-90">
+        <div class="flex flex-col gap-10 lg:grid grid-cols-2 place-content-center lg:px-60">
             {
                 cards.map(card => {
                     const { data } = card;
